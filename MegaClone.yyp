@@ -1,6 +1,5 @@
 {
   "resources": [
-    {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},"order":15,},
     {"id":{"name":"sPlayerTemp","path":"sprites/sPlayerTemp/sPlayerTemp.yy",},"order":3,},
     {"id":{"name":"sColission","path":"sprites/sColission/sColission.yy",},"order":0,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
