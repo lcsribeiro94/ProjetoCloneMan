@@ -10,7 +10,7 @@ var move = key_right - key_left;
 hsp = move * walksp;
 vsp = vsp + grv;
 if (place_meeting(x,y+1,oWall) && key_jump) {
-	vsp = -10;
+	vsp = -99;
 }
 
 // H Collision
