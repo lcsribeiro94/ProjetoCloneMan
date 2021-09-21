@@ -8,6 +8,13 @@ function PlayerState_Free(){
 	if (place_meeting(x,y+1,oWall) && key_jump) {
 		vsp = -10;
 	}
+	
+	// Updating Sprite
+	var _oldSprite = sprite_index;
+	if (hsp != 0) {
+		sprite_index = spritePlayerWalk;
+	} else sprite_index = spritePlayer;
+	if (_oldSprite != sprite_index) localFrame = 0; 
 
 	// H Collision
 	if (place_meeting(x+hsp, y, oWall)) {
