@@ -5,11 +5,15 @@ hspWall = 8;
 hspAcc = 4;
 hspMax = 100;
 vsp = 0;
-vspWall = -9;
+vspWallJ = -9;
 vspMax = 10;
 grv = 0.5;
-grvWall = 0;
-dashsp = 50;
+grvWall = 0.5;
+dashsp = 15;
+vspWall = 5;
+dashDuration = 0;
+dashCooldown = 0;
+wallJumpDuration = 0;
 
 onWall = 0;
 onGround = false;
@@ -19,7 +23,7 @@ onDash = false;
 spritePlayer = sPlayerIdle;
 spritePlayerWalk = sPlayerWalk;
 spritePlayerJump = sPlayerJump;
-spritePlayerDash = sPlayerTemp;
+spritePlayerDash = sPlayerDash;
 spritePlayerWall = sPlayerWall;
 
 state = PLAYERSTATE.FREE;
