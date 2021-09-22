@@ -3,7 +3,12 @@
 function PlayerState_Dash(){
 	sprite_index = spritePlayerDash;
 	vsp = 0;
-	hsp = dashsp;
+	hsp = image_xscale * dashsp;
+	var _dashTime = 120;
+	
+	while (_dashTime > 0) {
+		_dashTime--;
+	}
 	
 	// H Collision
 	if (place_meeting(x+hsp, y, oWall)) {
@@ -14,5 +19,5 @@ function PlayerState_Dash(){
 	}
 	x = x + hsp;
 	
-	if (image_index >= image_number - 1) state = PLAYERSTATE.FREE;
+	if (_dashTime <= 0) state = PLAYERSTATE.FREE;
 }

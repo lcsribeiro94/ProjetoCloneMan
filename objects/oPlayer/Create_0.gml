@@ -3,15 +3,17 @@
 hsp = 0;
 hspWall = 8;
 hspAcc = 4;
+hspMax = 100;
 vsp = 0;
 vspWall = -9;
+vspMax = 10;
 grv = 0.5;
 grvWall = 0;
-walksp = 4;
-dashsp = 10;
+dashsp = 50;
 
 onWall = 0;
 onGround = false;
+onDash = false;
 
 
 spritePlayer = sPlayerIdle;
