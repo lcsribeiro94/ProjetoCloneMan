@@ -21,4 +21,3 @@ function PlayerState_Dash(){
 	
 	if (_dashTime <= 0) state = PLAYERSTATE.FREE;
 }
-
