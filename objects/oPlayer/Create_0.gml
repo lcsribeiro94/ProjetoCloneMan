@@ -14,6 +14,7 @@ vspWall = 5;
 dashDuration = 0;
 dashCooldown = 0;
 wallJumpDuration = 0;
+nextAtk = false;
 
 onWall = 0;
 onGround = false;

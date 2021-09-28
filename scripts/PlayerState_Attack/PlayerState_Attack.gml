@@ -6,10 +6,25 @@ function PlayerState_Attack(){
 	
 	ProcessarAtaque(spritePlayerAttack1, sPlayerAttack1HB);
 	
-	if (key_attack && image_index > 2) state = PLAYERSTATE.ATTACK2;
+	if (key_attack) nextAtk = true;
 	
-	if (animation_end()) {
+	if(key_dash)
+	{
+		dashDuration = 15;
+		onDash = true;
+		vsp = 0;
+		hsp = image_xscale * dashsp;
 		sprite_index = spritePlayer;
 		state = PLAYERSTATE.FREE;
+	}
+	
+	if (animation_end()) {
+		if(nextAtk){
+			nextAtk = false;
+			state = PLAYERSTATE.ATTACK2
+		}else{
+			sprite_index = spritePlayer;
+			state = PLAYERSTATE.FREE;
+		}
 	}
 }

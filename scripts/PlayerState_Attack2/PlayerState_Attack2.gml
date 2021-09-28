@@ -6,10 +6,15 @@ function PlayerState_Attack2(){
 	
 	ProcessarAtaque(spritePlayerAttack2, sPlayerAttack2HB);
 	
-	//if (key_attack && image_index > 1) state = PLAYERSTATE.ATTACK2;
+	if (key_attack && image_index > 1) nextAtk = true;
 	
 	if (animation_end()) {
 		sprite_index = spritePlayer;
-		state = PLAYERSTATE.FREE;
+		if(nextAtk){
+			nextAtk = false;
+			state = PLAYERSTATE.ATTACK3;
+		}else{
+			state = PLAYERSTATE.FREE;
+		}
 	}
 }
