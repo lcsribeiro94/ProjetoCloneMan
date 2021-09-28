@@ -24,6 +24,7 @@
     {"id":{"name":"PlayerState_Attack","path":"scripts/PlayerState_Attack/PlayerState_Attack.yy",},"order":3,},
     {"id":{"name":"PlayerState_Attack3","path":"scripts/PlayerState_Attack3/PlayerState_Attack3.yy",},"order":6,},
     {"id":{"name":"sTileSetCave","path":"sprites/sTileSetCave/sTileSetCave.yy",},"order":6,},
+    {"id":{"name":"oPlayerAfterImage","path":"objects/oPlayerAfterImage/oPlayerAfterImage.yy",},"order":3,},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"order":0,},
     {"id":{"name":"sTitleSetGrass","path":"sprites/sTitleSetGrass/sTitleSetGrass.yy",},"order":1,},
     {"id":{"name":"RoomCave","path":"rooms/RoomCave/RoomCave.yy",},"order":3,},

@@ -21,6 +21,11 @@ function PlayerState_Free(){
 	}*/
 		hsp = move * hspAcc;
 	}else{
+		var inst = instance_create_layer(x, y, "Instances", oPlayerAfterImage);
+		inst.sprite_index = sprite_index;
+		inst.image_index = image_index;
+		inst.image_xscale = image_xscale;
+		
 		dashActualSpeed = dashActualSpeed * dashAcc;
 		if(dashJump){
 			hsp = (hsp + dashActualSpeed) * abs(move);
