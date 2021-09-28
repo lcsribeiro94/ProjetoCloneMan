@@ -13,7 +13,8 @@ function PlayerState_Attack(){
 		dashDuration = 15;
 		onDash = true;
 		vsp = 0;
-		hsp = image_xscale * dashsp;
+		hsp = 0;
+		dashActualSpeed = image_xscale * 0.25;
 		sprite_index = spritePlayer;
 		state = PLAYERSTATE.FREE;
 	}
@@ -23,6 +24,7 @@ function PlayerState_Attack(){
 			nextAtk = false;
 			state = PLAYERSTATE.ATTACK2
 		}else{
+			atkCooldown = 5;
 			sprite_index = spritePlayer;
 			state = PLAYERSTATE.FREE;
 		}

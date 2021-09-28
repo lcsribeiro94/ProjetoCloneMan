@@ -59,7 +59,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 34,
-    "yorigin": 67,
+    "yorigin": 64,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sPlayerDash","path":"sprites/sPlayerDash/sPlayerDash.yy",},

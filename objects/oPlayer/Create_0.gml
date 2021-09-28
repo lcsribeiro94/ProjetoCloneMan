@@ -1,20 +1,24 @@
 /// @description Aqui são iniciadas os parametros de criação do jogador
 
 hsp = 0;
-hspWall = 8;
-hspAcc = 4;
-hspMax = 100;
+hspWall = 6;
+hspAcc = 3;
+hspMax = 35;
 vsp = 0;
 vspWallJ = -9;
-vspMax = 10;
-grv = 0.5;
-grvWall = 0.5;
-dashsp = 15;
-vspWall = 5;
+vspMax = 11.50;
+grv = 0.50;
+grvWall = 0.50;
+dashsp = 10;
+vspWall = 3.5;
 dashDuration = 0;
 dashCooldown = 0;
+dashAcc = 1.2;
+dashActualSpeed = 0;
+dashJump = false;
 wallJumpDuration = 0;
 nextAtk = false;
+atkCooldown = 0;
 
 onWall = 0;
 onGround = false;

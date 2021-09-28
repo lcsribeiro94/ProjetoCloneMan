@@ -5,6 +5,7 @@ function PlayerState_Free(){
 	dashDuration = max(dashDuration - 1, 0);
 	dashCooldown = max(dashCooldown - 1, 0);
 	wallJumpDuration = max(wallJumpDuration - 1, 0);
+	atkCooldown = max(atkCooldown - 1, 0);
 	
 	
 	if(dashDuration == 1){
@@ -13,21 +14,33 @@ function PlayerState_Free(){
 	// H Speed
 	var move = key_right - key_left;
 	if(wallJumpDuration > 0){	
-	}else if(dashDuration <= 0){
+	}else if(dashDuration <= 0 && !dashJump){
 	/*if(!onDash){
 		hsp = move * hspAcc;
 		hsp = clamp(hsp, -hspMax, hspMax);
 	}*/
 		hsp = move * hspAcc;
-		hsp = clamp(hsp, -hspMax, hspMax);
 	}else{
+		dashActualSpeed = dashActualSpeed * dashAcc;
+		if(dashJump){
+			hsp = (hsp + dashActualSpeed) * abs(move);
+		}else{
+			hsp = hsp + dashActualSpeed;
+		}
+		
+		if(hsp * image_xscale > dashsp){
+			hsp = dashsp * image_xscale;
+		}
 		if((move > 0 && hsp < 0) || (move < 0 && hsp > 0)){
 				hsp = hsp * -1;
+				dashActualSpeed = dashActualSpeed * -1;
 		}
 	}
-	
+	hsp = clamp(hsp, -hspMax, hspMax);
+		
 	// Wall jump
 	if (onWall != 0) && (!onGround) && (key_jump) {
+		dashDuration = 0;
 		wallJumpDuration = 10;
 		hsp = move * -hspWall * onWall;
 		vsp = vspWallJ;
@@ -39,7 +52,8 @@ function PlayerState_Free(){
 		dashDuration = 15;
 		onDash = true;
 		vsp = 0;
-		hsp = image_xscale * dashsp;
+		hsp = 0;
+		dashActualSpeed = image_xscale;
 		
 		
 		/*while (_dashTime > 0) {
@@ -61,14 +75,24 @@ function PlayerState_Free(){
 		
 	}else if (vsp < vspMax) vsp = vsp + _grvFinal;
 	
+	if((onWall != 0 || onGround) && dashJump && dashDuration == 0){
+		dashJump = false;
+	}
+	
 	// Jump
 	if (onGround && key_jump) {
 		vsp = -10;
+		if(dashDuration > 0){
+			dashJump = true;
+		}
 	}
+	
 	
 	// Check Status
 	onGround = place_meeting(x, y+1, oWall);
 	onWall = place_meeting(x+hsp, y, oWall) - place_meeting(x-hsp, y, oWall);
+	
+	
 
 	// H Collision
 	if (place_meeting(x+hsp, y, oWall)) {
@@ -139,6 +163,9 @@ function PlayerState_Free(){
 	}
 	if (hsp != 0) image_xscale = sign(hsp);
 	
-	if (key_attack) state = PLAYERSTATE.ATTACK1;
+	if (key_attack && onGround && atkCooldown = 0) {
+		dashDuration = 0;
+		state = PLAYERSTATE.ATTACK1;		
+	}
 	
 }

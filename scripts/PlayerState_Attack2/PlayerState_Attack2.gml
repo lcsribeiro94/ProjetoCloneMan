@@ -8,12 +8,24 @@ function PlayerState_Attack2(){
 	
 	if (key_attack && image_index > 1) nextAtk = true;
 	
-	if (animation_end()) {
+	if(key_dash)
+	{
+		dashDuration = 15;
+		onDash = true;
+		vsp = 0;
+		hsp = 0;
+		dashActualSpeed = image_xscale * 0.25;
 		sprite_index = spritePlayer;
+		state = PLAYERSTATE.FREE;
+	}
+	
+	if (animation_end()) {
 		if(nextAtk){
 			nextAtk = false;
 			state = PLAYERSTATE.ATTACK3;
 		}else{
+			atkCooldown = 5;
+			sprite_index = spritePlayer;
 			state = PLAYERSTATE.FREE;
 		}
 	}

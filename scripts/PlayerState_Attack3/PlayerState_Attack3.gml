@@ -9,6 +9,7 @@ function PlayerState_Attack3(){
 	//if (key_attack && image_index > 1) state = PLAYERSTATE.ATTACK2;
 	
 	if (animation_end()) {
+		atkCooldown = 5;
 		sprite_index = spritePlayer;
 		state = PLAYERSTATE.FREE;
 	}
