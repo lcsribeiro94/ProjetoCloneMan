@@ -66,8 +66,6 @@ function PlayerState_Free(){
 		vsp = -10;
 	}
 	
-	
-	
 	// Check Status
 	onGround = place_meeting(x, y+1, oWall);
 	onWall = place_meeting(x+hsp, y, oWall) - place_meeting(x-hsp, y, oWall);
@@ -116,6 +114,8 @@ function PlayerState_Free(){
 	}*/
 	if(dashDuration > 0){
 		sprite_index = spritePlayerDash;
+		if (dashDuration >= 10) image_index = 0;
+		else image_index = 1;
 	}else if (!onGround) {
 		if (onWall != 0) {
 			sprite_index = spritePlayerWall;
@@ -139,5 +139,6 @@ function PlayerState_Free(){
 	}
 	if (hsp != 0) image_xscale = sign(hsp);
 	
+	if (key_attack) state = PLAYERSTATE.ATTACK1;
 	
 }

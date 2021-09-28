@@ -19,12 +19,16 @@ onWall = 0;
 onGround = false;
 onDash = false;
 
+enemiesHit = ds_list_create();
 
 spritePlayer = sPlayerIdle;
 spritePlayerWalk = sPlayerWalk;
 spritePlayerJump = sPlayerJump;
 spritePlayerDash = sPlayerDash;
 spritePlayerWall = sPlayerWall;
+spritePlayerAttack1 = sPlayerAttack1;
+spritePlayerAttack2 = sPlayerAttack2;
+spritePlayerAttack3 = sPlayerAttack3;
 
 state = PLAYERSTATE.FREE;
 
@@ -33,6 +37,5 @@ enum PLAYERSTATE {
 	ATTACK1,
 	ATTACK2,
 	ATTACK3,
-	LADDER,
-	DASH
+	LADDER
 }
