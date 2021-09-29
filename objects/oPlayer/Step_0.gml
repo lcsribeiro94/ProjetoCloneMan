@@ -4,6 +4,7 @@ key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
 key_dash = keyboard_check_pressed(vk_lshift);
+key_dash_hold = keyboard_check(vk_lshift);
 key_attack = keyboard_check_pressed(ord("Z"));
 	//show_debug_message("hsp = " + string(hsp));
 	//show_debug_message("vsp = " + string(vsp));
@@ -20,6 +21,9 @@ switch (state) {
 		break;
 	case PLAYERSTATE.ATTACK3:
 		PlayerState_Attack3();
+		break;
+	case PLAYERSTATE.ATTACKAIR:
+		PlayerState_AttackAir();
 		break;
 }
 

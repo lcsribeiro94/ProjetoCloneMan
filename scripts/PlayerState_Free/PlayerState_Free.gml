@@ -14,6 +14,12 @@ function PlayerState_Free(){
 	// H Speed
 	var move = key_right - key_left;
 	if(wallJumpDuration > 0){	
+		if(dashJump){
+			var inst = instance_create_layer(x, y, "Instances", oPlayerAfterImage);
+			inst.sprite_index = sprite_index;
+			inst.image_index = image_index;
+			inst.image_xscale = image_xscale;
+		}
 	}else if(dashDuration <= 0 && !dashJump){
 	/*if(!onDash){
 		hsp = move * hspAcc;
@@ -49,6 +55,10 @@ function PlayerState_Free(){
 		wallJumpDuration = 10;
 		hsp = move * -hspWall * onWall;
 		vsp = vspWallJ;
+		if(key_dash_hold){
+			dashJump = true;
+			hsp = move * -dashsp * onWall;
+		}
 	}
 	
 	
@@ -80,14 +90,15 @@ function PlayerState_Free(){
 		
 	}else if (vsp < vspMax) vsp = vsp + _grvFinal;
 	
-	if((onWall != 0 || onGround) && dashJump && dashDuration == 0){
+	if(((onWall != 0 && wallJumpDuration == 0) || onGround) && dashJump && dashDuration == 0){
 		dashJump = false;
 	}
 	
 	// Jump
 	if (onGround && key_jump) {
 		vsp = -10;
-		if(dashDuration > 0){
+		if(dashDuration > 0 || key_dash_hold){
+			dashDuration = 3;
 			dashJump = true;
 		}
 	}
@@ -171,6 +182,9 @@ function PlayerState_Free(){
 	if (key_attack && onGround && atkCooldown = 0) {
 		dashDuration = 0;
 		state = PLAYERSTATE.ATTACK1;		
+	}
+	if (key_attack && !onGround && !onWall){		
+		state = PLAYERSTATE.ATTACKAIR;
 	}
 	
 }

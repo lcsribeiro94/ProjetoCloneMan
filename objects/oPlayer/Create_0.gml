@@ -1,7 +1,7 @@
 /// @description Aqui são iniciadas os parametros de criação do jogador
 
 hsp = 0;
-hspWall = 6;
+hspWall = 4;
 hspAcc = 3;
 hspMax = 35;
 vsp = 0;
@@ -19,6 +19,7 @@ dashJump = false;
 wallJumpDuration = 0;
 nextAtk = false;
 atkCooldown = 0;
+dashHoldMultiplier = 2.5;
 
 onWall = 0;
 onGround = false;
@@ -34,6 +35,7 @@ spritePlayerWall = sPlayerWall;
 spritePlayerAttack1 = sPlayerAttack1;
 spritePlayerAttack2 = sPlayerAttack2;
 spritePlayerAttack3 = sPlayerAttack3;
+spritePlayerAttackAir = sPlayerAttackAir;
 
 state = PLAYERSTATE.FREE;
 
@@ -42,5 +44,6 @@ enum PLAYERSTATE {
 	ATTACK1,
 	ATTACK2,
 	ATTACK3,
+	ATTACKAIR,
 	LADDER
 }
