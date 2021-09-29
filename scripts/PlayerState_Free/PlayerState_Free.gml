@@ -52,7 +52,7 @@ function PlayerState_Free(){
 	}
 	
 	
-	if (key_dash && dashCooldown == 0 && dashDuration == 0) {
+	if (key_dash && dashCooldown == 0 && dashDuration == 0 && !dashJump) {
 		//state = PLAYERSTATE.DASH;
 		dashDuration = 15;
 		onDash = true;
