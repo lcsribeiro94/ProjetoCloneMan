@@ -34,6 +34,7 @@
     {"id":{"name":"animation_end","path":"scripts/animation_end/animation_end.yy",},"order":4,},
     {"id":{"name":"sPlayerAttack3HB","path":"sprites/sPlayerAttack3HB/sPlayerAttack3HB.yy",},"order":5,},
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},"order":8,},
+    {"id":{"name":"Room5","path":"rooms/Room5/Room5.yy",},"order":4,},
     {"id":{"name":"PlayerState_Free","path":"scripts/PlayerState_Free/PlayerState_Free.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
@@ -52,6 +53,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"Room5","path":"rooms/Room5/Room5.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"MoveTest","path":"rooms/MoveTest/MoveTest.yy",},},
     {"roomId":{"name":"RoomCave","path":"rooms/RoomCave/RoomCave.yy",},},
@@ -81,7 +83,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2.3.3.574",
+    "IDEVersion": "2.3.4.583",
   },
   "resourceVersion": "1.4",
   "name": "MegaClone",
