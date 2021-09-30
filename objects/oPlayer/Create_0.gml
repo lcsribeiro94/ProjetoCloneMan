@@ -20,6 +20,10 @@ wallJumpDuration = 0;
 nextAtk = false;
 atkCooldown = 0;
 dashHoldMultiplier = 2.5;
+specialUpAtk = false;
+specialUpAtkCooldown = 0;
+specialNeutralAtkCooldown = 0;
+specialDownAtkHitCounter = 0;
 
 onWall = 0;
 onGround = false;
@@ -36,6 +40,8 @@ spritePlayerAttack1 = sPlayerAttack1;
 spritePlayerAttack2 = sPlayerAttack2;
 spritePlayerAttack3 = sPlayerAttack3;
 spritePlayerAttackAir = sPlayerAttackAir;
+spritePlayerSpecialAirUp = sPlayerSpecialAirUp;
+spritePlayerSpecialAirDown = sPlayerSpecialAirDown;
 
 state = PLAYERSTATE.FREE;
 
@@ -45,5 +51,9 @@ enum PLAYERSTATE {
 	ATTACK2,
 	ATTACK3,
 	ATTACKAIR,
+	SPECIALAIRUP,
+	SPECIALAIRDOWN,
+	SPECIALNEUTRAL,
+	SPECIALNEUTRALAIR,
 	LADDER
 }

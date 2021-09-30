@@ -7,6 +7,8 @@ function PlayerState_Free(){
 	dashCooldown = max(dashCooldown - 1, 0);
 	wallJumpDuration = max(wallJumpDuration - 1, 0);
 	atkCooldown = max(atkCooldown - 1, 0);
+	specialNeutralAtkCooldown = max(specialNeutralAtkCooldown - 1, 0);
+	specialUpAtkCooldown = max(specialUpAtkCooldown - 1, 0);
 	
 	
 	if(dashDuration == 1){
@@ -91,8 +93,13 @@ function PlayerState_Free(){
 		
 	}else if (vsp < vspMax) vsp = vsp + _grvFinal;
 	
-	if(((onWall != 0 && wallJumpDuration == 0) || onGround) && dashJump && dashDuration == 0){
-		dashJump = false;
+	if(((onWall != 0 && wallJumpDuration == 0) || onGround)){
+		if(dashJump && dashDuration == 0){
+			dashJump = false;
+		}
+		if(specialUpAtkCooldown == 0){
+			specialUpAtk = false;
+		}
 	}
 	
 	// Jump
@@ -187,5 +194,21 @@ function PlayerState_Free(){
 	if (key_attack && !onGround && !onWall){		
 		state = PLAYERSTATE.ATTACKAIR;
 	}
-	
+	if(key_special && atkCooldown = 0 && !onWall && !key_up && specialNeutralAtkCooldown == 0){
+		if(onGround){
+			state = PLAYERSTATE.SPECIALNEUTRAL;
+		}else{
+			state = PLAYERSTATE.SPECIALNEUTRALAIR;
+		}
+	}
+	if(key_special && atkCooldown = 0 && !onWall && key_up && !specialUpAtk && specialUpAtkCooldown == 0){
+		if(dashDuration > 0){
+			dashJump = true;
+		}
+		specialUpAtk = true;
+		state = PLAYERSTATE.SPECIALAIRUP;
+	}
+	if(key_special && atkCooldown = 0 && !onWall && !onGround && key_down){
+		state = PLAYERSTATE.SPECIALAIRDOWN;
+	}
 }

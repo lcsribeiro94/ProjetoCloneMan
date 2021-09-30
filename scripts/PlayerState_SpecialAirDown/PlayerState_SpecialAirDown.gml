@@ -1,6 +1,8 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function PlayerState_AttackAir(){
+function PlayerState_SpecialAirDown(){
+	
+	specialDownAtkHitCounter++;
 	
 	image_speed = 1;
 	
@@ -70,14 +72,62 @@ function PlayerState_AttackAir(){
 	}
 	y = y + vsp;
 	
-	ProcessarAtaque(spritePlayerAttackAir, sPlayerAttackAirHB);
+	if (sprite_index != spritePlayerSpecialAirDown) {
+		sprite_index = spritePlayerSpecialAirDown;
+		image_index = 0;
+		ds_list_clear(enemiesHit);
+	}
 	
+	ProcessarAtaque(spritePlayerSpecialAirDown, sPlayerSpecialAirDownHB, -7.5);
+	
+	if(specialDownAtkHitCounter % 20 == 0){		
+		ds_list_clear(enemiesHit);
+	}
+	
+	/*
+	// Atualizando hitbox e verificando inimigos atingidos
+	
+	mask_index = sPlayerSpecialAirDownHB;
+	var _enemiesHitNow = ds_list_create();
+	var _hits = instance_place_list(x, y, oEnemy, _enemiesHitNow, false);
+	if (_hits > 0) {
+		for (var i = 0; i < _hits; i++) {			
+			vsp = -7.5;
+			// Checando se o inimigo já foi atingido neste frame
+			var _hitID = _enemiesHitNow[| i];
+			if (ds_list_find_index(enemiesHit, _hitID) == -1) {
+				ds_list_add(enemiesHit, _hitID);
+				with (_hitID) {
+					// Definindo o que o ataque faz ao inimigo
+					hp--;
+				}
+			}
+		}
+	}
+	ds_list_destroy(_enemiesHitNow);
+	if(vsp < 0){
+		ds_list_clear(enemiesHit);
+	}
+	mask_index = spritePlayer;
+	*/
 	if (hsp != 0) image_xscale = sign(hsp);
-	//if (key_attack && image_index > 1) state = PLAYERSTATE.ATTACK2;
 	
+	if(key_dash)
+	{
+		dashDuration = 15;
+		onDash = true;
+		vsp = 0;
+		hsp = 0;
+		dashActualSpeed = image_xscale * 0.25;
+		sprite_index = spritePlayer;
+		state = PLAYERSTATE.FREE;
+	}
+	//if (key_attack && image_index > 1) state = PLAYERSTATE.ATTACK2;
+	/*
 	if (animation_end()) {
 		image_speed = 0;
 		sprite_index = spritePlayer;
 		state = PLAYERSTATE.FREE;
 	}
+	*/
 }

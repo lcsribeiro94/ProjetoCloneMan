@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function PlayerState_AttackAir(){
+function PlayerState_SpecialNeutralAir(){
 	
 	image_speed = 1;
 	
@@ -20,17 +20,6 @@ function PlayerState_AttackAir(){
 	}*/
 		hsp = move * hspAcc;
 	}else{
-		
-		dashActualSpeed = dashActualSpeed * dashAcc;
-		if(dashJump){
-			hsp = (hsp + dashActualSpeed) * abs(move);
-		}else{
-			hsp = hsp + dashActualSpeed;
-		}
-		
-		if(hsp * image_xscale > dashsp){
-			hsp = dashsp * image_xscale;
-		}
 		if((move > 0 && hsp < 0) || (move < 0 && hsp > 0)){
 				hsp = hsp * -1;
 				dashActualSpeed = dashActualSpeed * -1;
@@ -63,6 +52,10 @@ function PlayerState_AttackAir(){
 		while (!place_meeting(x, y+sign(vsp), oWall)) {
 			y = y + sign(vsp);
 		}
+		var inst = instance_create_layer(x, y, "Instances", oAttackProjectile);
+		inst.sprite_index = sPlayerSpecialNeutral;
+		inst.image_xscale = image_xscale;
+		inst.orientation = image_xscale;
 		vsp = 0;				
 		image_speed = 0;
 		sprite_index = spritePlayer;
@@ -76,6 +69,11 @@ function PlayerState_AttackAir(){
 	//if (key_attack && image_index > 1) state = PLAYERSTATE.ATTACK2;
 	
 	if (animation_end()) {
+		specialNeutralAtkCooldown = 60;
+		var inst = instance_create_layer(x, y, "Instances", oAttackProjectile);
+		inst.sprite_index = sPlayerSpecialNeutral;
+		inst.image_xscale = image_xscale;
+		inst.orientation = image_xscale;
 		image_speed = 0;
 		sprite_index = spritePlayer;
 		state = PLAYERSTATE.FREE;

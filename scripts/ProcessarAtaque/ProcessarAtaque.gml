@@ -1,6 +1,7 @@
-/// @function ProcessarAtaque(spriteAtaque, spriteHB);
+/// @function ProcessarAtaque(spriteAtaque, spriteHB, vsp);
 /// @param {real} <sprite_index> The index of the sprite shown
 /// @param {real} <sprite_index> The index of the sprite hb
+/// @param {real} <vsp> The VSP for Bounce Attack (SpecialAirDown)
 
 function ProcessarAtaque(){
 	
@@ -16,6 +17,9 @@ function ProcessarAtaque(){
 	var _hits = instance_place_list(x, y, oEnemy, _enemiesHitNow, false);
 	if (_hits > 0) {
 		for (var i = 0; i < _hits; i++) {
+			if(argument_count > 2){
+				vsp = argument[2];
+			}
 			// Checando se o inimigo já foi atingido neste frame
 			var _hitID = _enemiesHitNow[| i];
 			if (ds_list_find_index(enemiesHit, _hitID) == -1) {
