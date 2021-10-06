@@ -9,8 +9,13 @@ key_dash = keyboard_check_pressed(vk_lshift);
 key_dash_hold = keyboard_check(vk_lshift);
 key_attack = keyboard_check_pressed(ord("Z"));
 key_special = keyboard_check_pressed(ord("X"));
-	//show_debug_message("hsp = " + string(hsp));
+key_debug = keyboard_check_pressed(ord("P"));
+if(key_debug){
+	state = PLAYERSTATE.FREE;
+}
+//show_debug_message("hsp = " + string(hsp));
 	//show_debug_message("vsp = " + string(vsp));
+
 
 switch (state) {
 	case PLAYERSTATE.FREE:
