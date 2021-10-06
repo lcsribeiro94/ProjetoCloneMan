@@ -22,11 +22,23 @@ image_speed = 1;
 	}*/
 		hsp = move * hspAcc;
 	}else{
+		dashActualSpeed = dashActualSpeed * dashAcc;
+		if(dashJump){
+			hsp = (hsp + dashActualSpeed) * abs(move);
+		}else{
+			hsp = hsp + dashActualSpeed;
+		}
+		
+		if(hsp * image_xscale > dashsp){
+			hsp = dashsp * image_xscale;
+		}
 		if((move > 0 && hsp < 0) || (move < 0 && hsp > 0)){
 				hsp = hsp * -1;
 				dashActualSpeed = dashActualSpeed * -1;
 		}
 	}
+	
+	hsp = clamp(hsp, -hspMax, hspMax);
 	/*
 	var _grvFinal = grv;
 	

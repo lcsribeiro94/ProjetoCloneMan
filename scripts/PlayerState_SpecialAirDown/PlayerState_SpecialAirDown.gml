@@ -2,7 +2,6 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function PlayerState_SpecialAirDown(){
 	
-	specialDownAtkHitCounter++;
 	
 	image_speed = 1;
 	
@@ -39,6 +38,7 @@ function PlayerState_SpecialAirDown(){
 		}
 	}
 	
+	hsp = clamp(hsp, -hspMax, hspMax);
 	var _grvFinal = grv;
 	
 	if (onWall != 0) && (vsp > 0) {
@@ -49,7 +49,10 @@ function PlayerState_SpecialAirDown(){
 			vsp = vspWall;
 		}
 		
-	}else if (vsp < vspMax) vsp = vsp + _grvFinal;
+	}else if (vsp < (vspMax + (vspMax * specialDownEnhancer))){ 
+		
+		vsp = vsp + (_grvFinal + (_grvFinal * specialDownEnhancer));
+	};
 	
 	// H Collision
 	if (place_meeting(x+hsp, y, oWall)) {
@@ -65,6 +68,7 @@ function PlayerState_SpecialAirDown(){
 		while (!place_meeting(x, y+sign(vsp), oWall)) {
 			y = y + sign(vsp);
 		}
+		specialDownEnhancer = 0;
 		vsp = 0;				
 		image_speed = 0;
 		sprite_index = spritePlayer;
@@ -80,7 +84,7 @@ function PlayerState_SpecialAirDown(){
 	
 	ProcessarAtaque(spritePlayerSpecialAirDown, sPlayerSpecialAirDownHB, -7.5);
 	
-	if(specialDownAtkHitCounter % 20 == 0){		
+	if(vsp > 0){		
 		ds_list_clear(enemiesHit);
 	}
 	
@@ -111,7 +115,7 @@ function PlayerState_SpecialAirDown(){
 	mask_index = spritePlayer;
 	*/
 	if (hsp != 0) image_xscale = sign(hsp);
-	
+	/*
 	if(key_dash)
 	{
 		dashDuration = 15;
@@ -121,7 +125,7 @@ function PlayerState_SpecialAirDown(){
 		dashActualSpeed = image_xscale * 0.25;
 		sprite_index = spritePlayer;
 		state = PLAYERSTATE.FREE;
-	}
+	}*/
 	//if (key_attack && image_index > 1) state = PLAYERSTATE.ATTACK2;
 	/*
 	if (animation_end()) {
@@ -130,4 +134,10 @@ function PlayerState_SpecialAirDown(){
 		state = PLAYERSTATE.FREE;
 	}
 	*/
+	
+	
+	if(key_down && key_special){
+		specialDownEnhancer += 1;
+		specialDownEnhancer = clamp(specialDownEnhancer, 0, specialDownEnhancerMax);
+	}
 }

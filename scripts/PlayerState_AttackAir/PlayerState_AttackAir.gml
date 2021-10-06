@@ -37,6 +37,8 @@ function PlayerState_AttackAir(){
 		}
 	}
 	
+	hsp = clamp(hsp, -hspMax, hspMax);
+	
 	var _grvFinal = grv;
 	
 	if (onWall != 0) && (vsp > 0) {

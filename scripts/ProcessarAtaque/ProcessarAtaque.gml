@@ -19,6 +19,7 @@ function ProcessarAtaque(){
 		for (var i = 0; i < _hits; i++) {
 			if(argument_count > 2){
 				vsp = argument[2];
+				specialDownEnhancer = 0;
 			}
 			// Checando se o inimigo já foi atingido neste frame
 			var _hitID = _enemiesHitNow[| i];

@@ -202,13 +202,15 @@ function PlayerState_Free(){
 		}
 	}
 	if(key_special && atkCooldown = 0 && !onWall && key_up && !specialUpAtk && specialUpAtkCooldown == 0){
-		if(dashDuration > 0){
+		if(dashDuration > 0 || key_dash_hold){
+			dashDuration = 15;
 			dashJump = true;
 		}
 		specialUpAtk = true;
 		state = PLAYERSTATE.SPECIALAIRUP;
 	}
 	if(key_special && atkCooldown = 0 && !onWall && !onGround && key_down){
+		
 		state = PLAYERSTATE.SPECIALAIRDOWN;
 	}
 }

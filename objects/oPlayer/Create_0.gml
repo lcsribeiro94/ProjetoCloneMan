@@ -23,8 +23,8 @@ dashHoldMultiplier = 2.5;
 specialUpAtk = false;
 specialUpAtkCooldown = 0;
 specialNeutralAtkCooldown = 0;
-specialDownAtkHitCounter = 0;
-
+specialDownEnhancer = 0;
+specialDownEnhancerMax = 5;
 onWall = 0;
 onGround = false;
 onDash = false;
