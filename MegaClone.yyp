@@ -8,6 +8,7 @@
     {"id":{"name":"sPlayerAttackAirHB","path":"sprites/sPlayerAttackAirHB/sPlayerAttackAirHB.yy",},"order":7,},
     {"id":{"name":"sPlayerAttack2","path":"sprites/sPlayerAttack2/sPlayerAttack2.yy",},"order":1,},
     {"id":{"name":"PlayerState_Attack2","path":"scripts/PlayerState_Attack2/PlayerState_Attack2.yy",},"order":5,},
+    {"id":{"name":"Room7","path":"rooms/Room7/Room7.yy",},"order":6,},
     {"id":{"name":"sColission","path":"sprites/sColission/sColission.yy",},"order":0,},
     {"id":{"name":"sPlayerSpecialAirDown","path":"sprites/sPlayerSpecialAirDown/sPlayerSpecialAirDown.yy",},"order":12,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
@@ -81,6 +82,7 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"MoveTest","path":"rooms/MoveTest/MoveTest.yy",},},
     {"roomId":{"name":"RoomCave","path":"rooms/RoomCave/RoomCave.yy",},},
+    {"roomId":{"name":"Room7","path":"rooms/Room7/Room7.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -107,7 +109,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2.3.3.574",
+    "IDEVersion": "2.3.4.583",
   },
   "resourceVersion": "1.4",
   "name": "MegaClone",
