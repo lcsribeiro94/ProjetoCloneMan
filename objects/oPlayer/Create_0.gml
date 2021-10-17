@@ -1,5 +1,13 @@
 /// @description Aqui são iniciadas os parametros de criação do jogador
 
+maxHP = 20;
+hp = maxHP / 2;
+flash = 0;
+healthbar_width = 15;
+healthbar_heigth = 60;
+healthbar_x = 75;
+healthbar_y = 200;
+
 hsp = 0;
 hspWall = 4;
 hspAcc = 3;

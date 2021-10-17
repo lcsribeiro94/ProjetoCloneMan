@@ -1,5 +1,8 @@
 /// @description Aqui é controlado o comportamento do jogador.
 
+//healthbar_x = camera_get_view_x(view_camera[0]) + 10;
+//healthbar_y = camera_get_view_y(view_camera[0]) + 150;
+
 key_up = keyboard_check(vk_up);
 key_down = keyboard_check(vk_down);
 key_left = keyboard_check(vk_left);
