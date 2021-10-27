@@ -16,6 +16,26 @@ key_debug = keyboard_check_pressed(ord("P"));
 if(key_debug){
 	state = PLAYERSTATE.FREE;
 }
+if(hp != old_hp){
+	if(hp < old_hp){
+		inv_frame = true;
+		inv_frameDuration = 60;
+	}
+	old_hp = hp;
+}
+if(inv_frameDuration == 0){
+	inv_frame = false;
+	image_alpha = 1;
+}else{
+	if(inv_frameDuration % 2 == 0)
+	if(inv_frameAlpha == 0){
+		inv_frameAlpha = 1;
+	}else{
+		inv_frameAlpha = 0;
+	}
+	image_alpha = inv_frameAlpha;
+}
+inv_frameDuration = max(inv_frameDuration - 1, 0);
 //show_debug_message("hsp = " + string(hsp));
 	//show_debug_message("vsp = " + string(vsp));
 
