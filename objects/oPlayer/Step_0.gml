@@ -18,11 +18,19 @@ if(key_debug){
 }
 if(hp != old_hp){
 	if(hp < old_hp){
-		hsp = -sign(image_xscale) * 3;
-		vsp = -3;
-		inv_frame = true;
-		inv_frameDuration = 60;
-		state = PLAYERSTATE.TAKEHIT;
+		if(hp > 0){
+			hsp = -sign(image_xscale) * 3;
+			vsp = -3;
+			inv_frame = true;
+			inv_frameDuration = 60;
+			state = PLAYERSTATE.TAKEHIT;
+		}else{
+			state = PLAYERSTATE.FREE;
+			x = global.checkpoint_x;
+			y = global.checkpoint_y;
+			hp = maxHP;
+			old_hp = hp;
+		}
 	}
 	old_hp = hp;
 }

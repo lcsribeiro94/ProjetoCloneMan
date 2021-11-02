@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sCheckpointGlow",
+    "path": "sprites/sCheckpointGlow/sCheckpointGlow.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -16,11 +19,13 @@
   "physicsFriction": 0.2,
   "physicsStartAwake": true,
   "physicsKinematic": false,
-  "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  "physicsShapePoints": [
+    {"x":0.0,"y":0.0,},
+    {"x":32.0,"y":0.0,},
+    {"x":32.0,"y":32.0,},
+    {"x":0.0,"y":32.0,},
   ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -28,7 +33,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oCamera",
+  "name": "oCheckpoint_Glow",
   "tags": [],
   "resourceType": "GMObject",
 }
