@@ -15,6 +15,7 @@
     {"id":{"name":"sPlayerSpecialAirDown","path":"sprites/sPlayerSpecialAirDown/sPlayerSpecialAirDown.yy",},"order":12,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
     {"id":{"name":"sPlayerAttack1","path":"sprites/sPlayerAttack1/sPlayerAttack1.yy",},"order":0,},
+    {"id":{"name":"sPlayerHit","path":"sprites/sPlayerHit/sPlayerHit.yy",},"order":17,},
     {"id":{"name":"Sprite27","path":"sprites/Sprite27/Sprite27.yy",},"order":16,},
     {"id":{"name":"sPlayerSpecialAirDownHB","path":"sprites/sPlayerSpecialAirDownHB/sPlayerSpecialAirDownHB.yy",},"order":11,},
     {"id":{"name":"Sprite32","path":"sprites/Sprite32/Sprite32.yy",},"order":0,},
