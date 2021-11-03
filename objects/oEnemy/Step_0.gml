@@ -8,7 +8,7 @@ if (place_meeting(x+hsp, y, oWall)) {
 	}
 	hsp *= -1;
 }
-if (!place_meeting(x+hsp, y+sprite_height, oWall)) {
+if (!place_meeting(x+(hsp), y+sprite_height, oWall)) {
 	while (place_meeting(x+sign(hsp), y+sprite_height, oWall)) {
 		x = x + sign(hsp);
 	}
