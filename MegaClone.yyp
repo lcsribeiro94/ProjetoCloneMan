@@ -54,6 +54,7 @@
     {"id":{"name":"PlayerState_SpecialNeutralAir","path":"scripts/PlayerState_SpecialNeutralAir/PlayerState_SpecialNeutralAir.yy",},"order":11,},
     {"id":{"name":"oDeath","path":"objects/oDeath/oDeath.yy",},"order":10,},
     {"id":{"name":"oPlayerAfterImage","path":"objects/oPlayerAfterImage/oPlayerAfterImage.yy",},"order":3,},
+    {"id":{"name":"RoomSky","path":"rooms/RoomSky/RoomSky.yy",},"order":7,},
     {"id":{"name":"sHealthBar_border","path":"sprites/sHealthBar_border/sHealthBar_border.yy",},"order":1,},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"order":0,},
     {"id":{"name":"sTitleSetGrass","path":"sprites/sTitleSetGrass/sTitleSetGrass.yy",},"order":1,},
@@ -79,6 +80,7 @@
     {"name":"macOS","path":"options/mac/options_mac.yy",},
     {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
+    {"name":"operagx","path":"options/operagx/options_operagx.yy",},
   ],
   "isDnDProject": false,
   "isEcma": false,
@@ -95,6 +97,7 @@
     {"roomId":{"name":"MoveTest","path":"rooms/MoveTest/MoveTest.yy",},},
     {"roomId":{"name":"RoomCave","path":"rooms/RoomCave/RoomCave.yy",},},
     {"roomId":{"name":"Room7","path":"rooms/Room7/Room7.yy",},},
+    {"roomId":{"name":"RoomSky","path":"rooms/RoomSky/RoomSky.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -124,7 +127,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2.3.3.574",
+    "IDEVersion": "2.3.6.595",
   },
   "resourceVersion": "1.4",
   "name": "MegaClone",
