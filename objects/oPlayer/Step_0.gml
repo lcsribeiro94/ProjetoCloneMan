@@ -15,6 +15,8 @@ key_special = keyboard_check_pressed(ord("X"));
 key_debug = keyboard_check_pressed(ord("P"));
 if(key_debug){
 	state = PLAYERSTATE.FREE;
+	x = global.checkpoint_x;
+	y = global.checkpoint_y;
 }
 if(hp != old_hp){
 	if(hp < old_hp){

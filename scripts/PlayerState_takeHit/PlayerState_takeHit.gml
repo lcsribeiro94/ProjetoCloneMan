@@ -15,14 +15,17 @@ function PlayerState_takeHit(){
 	
 	hsp = clamp(hsp, -hspMax, hspMax);
 	
+	var hsp_final = hsp + hspCarry;
+	hspCarry = 0;
+	
 	// H Collision
-	if (place_meeting(x+hsp, y, oWall)) {
-		while (!place_meeting(x+sign(hsp), y, oWall)) {
-			x = x + sign(hsp);
+	if (place_meeting(x+hsp_final, y, oWall)) {
+		while (!place_meeting(x+sign(hsp_final), y, oWall)) {
+			x = x + sign(hsp_final);
 		}
-		hsp = 0;
+		hsp_final = 0;
 	}
-	x = x + hsp;
+	x = x + hsp_final;
 
 	// V Collision
 	if (place_meeting(x, y+vsp, oWall)) {

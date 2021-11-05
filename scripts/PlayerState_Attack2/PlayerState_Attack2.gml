@@ -4,6 +4,18 @@ function PlayerState_Attack2(){
 	hsp = 0;
 	vsp = 0;
 	
+	var hsp_final = hsp + hspCarry;
+	hspCarry = 0;
+	
+	// H Collision
+	if (place_meeting(x+hsp_final, y, oWall)) {
+		while (!place_meeting(x+sign(hsp_final), y, oWall)) {
+			x = x + sign(hsp_final);
+		}
+		hsp_final = 0;
+	}
+	x = x + hsp_final;
+	
 	ProcessarAtaque(spritePlayerAttack2, sPlayerAttack2HB);
 	
 	if (key_attack && image_index > 1) nextAtk = true;

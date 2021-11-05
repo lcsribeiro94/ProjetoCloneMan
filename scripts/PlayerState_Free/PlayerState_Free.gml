@@ -9,7 +9,7 @@ function PlayerState_Free(){
 	atkCooldown = max(atkCooldown - 1, 0);
 	specialNeutralAtkCooldown = max(specialNeutralAtkCooldown - 1, 0);
 	specialUpAtkCooldown = max(specialUpAtkCooldown - 1, 0);
-	
+	specialDownEnhancer = 0;
 	
 	if(dashDuration == 1){
 		dashCooldown = 15;
@@ -116,16 +116,17 @@ function PlayerState_Free(){
 	onGround = place_meeting(x, y+1, oWall);
 	onWall = place_meeting(x+hsp, y, oWall) - place_meeting(x-hsp, y, oWall);
 	
-	
+	var hsp_final = hsp + hspCarry;
 
 	// H Collision
-	if (place_meeting(x+hsp, y, oWall)) {
-		while (!place_meeting(x+sign(hsp), y, oWall)) {
-			x = x + sign(hsp);
+	if (place_meeting(x+hsp_final, y, oWall)) {
+		while (!place_meeting(x+sign(hsp_final), y, oWall)) {
+			x = x + sign(hsp_final);
 		}
-		hsp = 0;
+		hsp_final = hspCarry;
 	}
-	x = x + hsp;
+	x = x + hsp_final;
+	hspCarry = 0;
 
 	// V Collision
 	if (place_meeting(x, y+vsp, oWall)) {

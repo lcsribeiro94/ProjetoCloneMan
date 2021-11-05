@@ -15,6 +15,7 @@ hsp = 0;
 hspWall = 4;
 hspAcc = 3;
 hspMax = 35;
+hspCarry = 0;
 vsp = 0;
 vspWallJ = -10;
 vspMax = 9;
