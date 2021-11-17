@@ -27,6 +27,10 @@ if(hp != old_hp){
 			inv_frameDuration = 60;
 			state = PLAYERSTATE.TAKEHIT;
 		}else{
+			vidaExtra--;
+			if (vidaExtra < 1) {
+				room_goto(RoomGameOver);
+			}
 			state = PLAYERSTATE.FREE;
 			x = global.checkpoint_x;
 			y = global.checkpoint_y;
