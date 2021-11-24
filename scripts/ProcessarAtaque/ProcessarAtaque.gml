@@ -27,6 +27,10 @@ function ProcessarAtaque(){
 				ds_list_add(enemiesHit, _hitID);
 				with (_hitID) {
 					// Definindo o que o ataque faz ao inimigo
+					hsp = -sign(hsp) * 3;
+					vsp = -5;
+					inv_frameDuration = 15;
+					state = ENEMYSTATE.TAKEHIT;
 					hp--;
 				}
 			}
