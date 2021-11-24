@@ -40,6 +40,7 @@ specialDownEnhancerMax = 5;
 onWall = 0;
 onGround = false;
 onDash = false;
+vidaExtra = 2;
 
 enemiesHit = ds_list_create();
 
