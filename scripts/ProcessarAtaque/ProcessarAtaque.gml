@@ -27,6 +27,7 @@ function ProcessarAtaque(){
 				ds_list_add(enemiesHit, _hitID);
 				with (_hitID) {
 					// Definindo o que o ataque faz ao inimigo
+					
 					if(playerX > x){
 						hsp = -3;
 					}else{
@@ -35,12 +36,35 @@ function ProcessarAtaque(){
 					vsp = -5;
 					inv_frameDuration = 15;
 					state = ENEMYSTATE.TAKEHIT;
+					
+					hp--;
+				}
+			}
+		}
+	}
+	
+	var _enemiesHitNowBoss = ds_list_create();
+	var _hitsBoss = instance_place_list(x, y, oBoss, _enemiesHitNowBoss, false);
+	if (_hitsBoss > 0) {
+		for (var i = 0; i < _hitsBoss; i++) {
+			if(argument_count > 2){
+				vsp = argument[2];
+				specialDownEnhancer = 0;
+			}
+			// Checando se o inimigo já foi atingido neste frame
+			var _hitIDBoss = _enemiesHitNowBoss[| i];
+			if (ds_list_find_index(enemiesHit, _hitIDBoss) == -1) {
+				ds_list_add(enemiesHit, _hitIDBoss);
+				with (_hitIDBoss) {
+					// Definindo o que o ataque faz ao inimigo
+					inv_frameDuration = 10;
 					hp--;
 				}
 			}
 		}
 	}
 	ds_list_destroy(_enemiesHitNow);
+	ds_list_destroy(_enemiesHitNowBoss);
 	mask_index = spritePlayer;
 	
 }

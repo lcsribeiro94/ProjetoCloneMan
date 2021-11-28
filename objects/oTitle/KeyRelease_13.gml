@@ -1,6 +1,8 @@
 randomize();
 roomtogo = irandom(2);
-
+global.hasUp = false;
+global.hasDown = false;
+global.hasNeutral = false;
 global.lastRoom = RoomTitle;
 
 switch (roomtogo) {
