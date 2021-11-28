@@ -4,7 +4,7 @@
 /// @param {real} <vsp> The VSP for Bounce Attack (SpecialAirDown)
 
 function ProcessarAtaque(){
-	
+	var playerX = x;
 	if (sprite_index != argument[0]) {
 		sprite_index = argument[0];
 		image_index = 0;
@@ -27,7 +27,11 @@ function ProcessarAtaque(){
 				ds_list_add(enemiesHit, _hitID);
 				with (_hitID) {
 					// Definindo o que o ataque faz ao inimigo
-					hsp = -sign(hsp) * 3;
+					if(playerX > x){
+						hsp = -3;
+					}else{
+						hsp = 3;
+					}
 					vsp = -5;
 					inv_frameDuration = 15;
 					state = ENEMYSTATE.TAKEHIT;
