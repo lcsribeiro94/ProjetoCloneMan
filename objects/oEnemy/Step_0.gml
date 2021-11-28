@@ -1,5 +1,7 @@
 if (hp <= 0) instance_destroy();
 
+if (hsp != 0) image_xscale = sign(hsp);
+
 if(inv_frameDuration == 0){
 	image_alpha = 1;
 }else{
