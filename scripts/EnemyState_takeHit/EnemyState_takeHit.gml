@@ -29,6 +29,7 @@ function EnemyState_takeHit(){
 	}
 	y = y + vsp;
 	if(inv_frameDuration <= 0){
+		hsp = -sign(hsp) * 3;
 		state = ENEMYSTATE.FREE;
 	}
 }
