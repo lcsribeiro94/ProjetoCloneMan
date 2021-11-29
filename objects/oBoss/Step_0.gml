@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
+randomize();
+
 if(inv_frameDuration == 0){
 	image_alpha = 1;
 }else{
@@ -15,12 +17,58 @@ inv_frameDuration = max(inv_frameDuration - 1, 0);
 
 if (hsp != 0) image_xscale = sign(hsp) * -1;
 
-if (hp <= 0) instance_destroy();
+if (hp <= 0) {
+	instance_destroy();
+	
+	if (room == RoomCaveBoss) {
+		global.hasDown = true;
+	}
+	if (room == RoomSkyBoss) {
+		global.hasUp = true;
+	}
+	if (room == RoomForestBoss) {
+		global.hasNeutral = true;
+	}
+	
+	if (global.hasDown && global.hasUp && global.hasNeutral) {
+		room_goto(RoomWinGame);
+	}
+	else {
+		var _verify = true;
+		
+		while (_verify) {
+			_verify = false;
+			roomtogo = irandom(2);
+
+			switch (roomtogo) {
+				case 0:
+					if (!global.hasDown) {
+						global.lastRoom = RoomCave;
+					}
+					else _verify = true;
+					break;
+				case 1:
+					if (!global.hasNeutral) {
+						global.lastRoom = RoomForest;
+					}
+					else _verify = true;
+					break;
+				case 2:
+					if (!global.hasUp) {
+						global.lastRoom = RoomSky;
+					}
+					else _verify = true;
+					break;
+			}
+		}
+		room_goto(global.lastRoom);
+	}
+}
 
 if(place_meeting(x,y,oPlayer)){
 	if(!oPlayer.inv_frame){
 		oPlayer.hp -= 1;
-		if(BOSSSTATES.ATTACKPOGO){
+		if(state == BOSSSTATES.ATTACKPOGO){
 			vsp = random(3) - 6;
 		}
 	}
@@ -56,24 +104,25 @@ switch(state){
 		}
 		var attack = random(100);
 		if(attack <= 5){
+			image_xscale = sign(x-oPlayer.x);
 			var chooseAtk = round(random(5));
 			switch(chooseAtk){
 				case 1:
-					if(global.lastRoom == RoomSky || global.hasUp){
+					if(global.lastRoom == RoomSkyBoss || global.hasUp){
 						state = BOSSSTATES.ATTACKJUMP;
 					}else{
 						state = BOSSSTATES.ATTACKDEFAULT;
 					}
 					break;
 				case 2:
-					if(global.lastRoom == RoomForest || global.hasNeutral){
+					if(global.lastRoom == RoomForestBoss || global.hasNeutral){
 						state = BOSSSTATES.ATTACKSLASH;
 					}else{
 						state = BOSSSTATES.ATTACKDEFAULT;
 					}
 					break;
 				case 3:
-					if(global.lastRoom == RoomCave || global.hasDown){
+					if(global.lastRoom == RoomCaveBoss || global.hasDown){
 						state = BOSSSTATES.ATTACKPOGO;
 					}else{
 						state = BOSSSTATES.ATTACKDEFAULT;

@@ -195,14 +195,14 @@ function PlayerState_Free(){
 	if (key_attack && !onGround && !onWall){		
 		state = PLAYERSTATE.ATTACKAIR;
 	}
-	if(key_special && atkCooldown = 0 && !onWall && !key_up && specialNeutralAtkCooldown == 0){
+	if(key_special && atkCooldown = 0 && !onWall && !key_up && specialNeutralAtkCooldown == 0 && global.hasNeutral){
 		if(onGround){
 			state = PLAYERSTATE.SPECIALNEUTRAL;
 		}else{
 			state = PLAYERSTATE.SPECIALNEUTRALAIR;
 		}
 	}
-	if(key_special && atkCooldown = 0 && !onWall && key_up && !specialUpAtk && specialUpAtkCooldown == 0){
+	if(key_special && atkCooldown = 0 && !onWall && key_up && !specialUpAtk && specialUpAtkCooldown == 0 && global.hasUp){
 		if(dashDuration > 0 || key_dash_hold){
 			dashDuration = 15;
 			dashJump = true;
@@ -210,7 +210,7 @@ function PlayerState_Free(){
 		specialUpAtk = true;
 		state = PLAYERSTATE.SPECIALAIRUP;
 	}
-	if(key_special && atkCooldown = 0 && !onWall && !onGround && key_down){
+	if(key_special && atkCooldown = 0 && !onWall && !onGround && key_down && global.hasDown){
 		
 		state = PLAYERSTATE.SPECIALAIRDOWN;
 	}
