@@ -59,21 +59,21 @@ switch(state){
 			var chooseAtk = round(random(5));
 			switch(chooseAtk){
 				case 1:
-					if(global.lastRoom == 2 || global.hasUp){
+					if(global.lastRoom == RoomSky || global.hasUp){
 						state = BOSSSTATES.ATTACKJUMP;
 					}else{
 						state = BOSSSTATES.ATTACKDEFAULT;
 					}
 					break;
 				case 2:
-					if(global.lastRoom == 1 || global.hasNeutral){
+					if(global.lastRoom == RoomForest || global.hasNeutral){
 						state = BOSSSTATES.ATTACKSLASH;
 					}else{
 						state = BOSSSTATES.ATTACKDEFAULT;
 					}
 					break;
 				case 3:
-					if(global.lastRoom == 0 || global.hasDown){
+					if(global.lastRoom == RoomCave || global.hasDown){
 						state = BOSSSTATES.ATTACKPOGO;
 					}else{
 						state = BOSSSTATES.ATTACKDEFAULT;
