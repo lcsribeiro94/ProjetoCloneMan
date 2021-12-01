@@ -13,7 +13,7 @@ if(hsp > hspMax){
 }
 if(place_meeting(x,y,oPlayer)){
 	if(!oPlayer.inv_frame){
-		oPlayer.hp -= 1;
+		oPlayer.hp -= dmg;
 	}
 }
 duration--;

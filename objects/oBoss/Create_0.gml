@@ -9,7 +9,16 @@ maxHP = hp;
 hsp = 0;
 vsp = 0;
 grv = 0.50;
-
+dmg = 1;
+if (global.hasDown) {
+	dmg++;
+}
+if (global.hasUp) {
+	dmg++;
+}
+if (global.hasNeutral) {
+	dmg++;
+}
 inv_frameDuration = 0;
 inv_frameAlpha = 0;
 

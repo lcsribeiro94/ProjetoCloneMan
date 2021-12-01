@@ -67,7 +67,7 @@ if (hp <= 0) {
 
 if(place_meeting(x,y,oPlayer)){
 	if(!oPlayer.inv_frame){
-		oPlayer.hp -= 1;
+		oPlayer.hp -= dmg;
 		if(state == BOSSSTATES.ATTACKPOGO){
 			vsp = random(3) - 6;
 		}
@@ -160,6 +160,7 @@ switch(state){
 			inst.sprite_index = sBossSpecialNeutral;
 			inst.image_xscale = image_xscale * -1;
 			inst.orientation = image_xscale * -1;
+			inst.dmg = dmg*2;
 			sprite_index = sBossAttackSlash;
 			image_index = 0;
 		}
