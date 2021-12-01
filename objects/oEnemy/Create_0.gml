@@ -1,5 +1,5 @@
 /// @description 
-
+hit = oSwordSlash;
 hp = 3;
 old_hp = 3;
 hsp = 3;

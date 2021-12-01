@@ -5,6 +5,7 @@
 
 function ProcessarAtaque(){
 	var playerX = x;
+	var playerY = y;
 	if (sprite_index != argument[0]) {
 		sprite_index = argument[0];
 		image_index = 0;
@@ -16,13 +17,21 @@ function ProcessarAtaque(){
 	var _enemiesHitNow = ds_list_create();
 	var _hits = instance_place_list(x, y, oEnemy, _enemiesHitNow, false);
 	if (_hits > 0) {
+		var freezeEffect = true;
 		for (var i = 0; i < _hits; i++) {
 			if(argument_count > 2){
 				vsp = argument[2];
 				specialDownEnhancer = 0;
 			}
+			var _freeze = current_time + 33;
+			while(current_time < _freeze && freezeEffect){
+			};
+			freezeEffect = false;
 			// Checando se o inimigo já foi atingido neste frame
 			var _hitID = _enemiesHitNow[| i];
+			with(_hitID){
+				if(!instance_exists(hit)) hit = instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+			}
 			if (ds_list_find_index(enemiesHit, _hitID) == -1) {
 				ds_list_add(enemiesHit, _hitID);
 				with (_hitID) {
@@ -52,7 +61,11 @@ function ProcessarAtaque(){
 				specialDownEnhancer = 0;
 			}
 			// Checando se o inimigo já foi atingido neste frame
+			
 			var _hitIDBoss = _enemiesHitNowBoss[| i];
+			with(_hitIDBoss){
+				if(!instance_exists(oSwordSlash)) instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+			}
 			if (ds_list_find_index(enemiesHit, _hitIDBoss) == -1) {
 				ds_list_add(enemiesHit, _hitIDBoss);
 				with (_hitIDBoss) {
