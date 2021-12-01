@@ -3,15 +3,15 @@
 //healthbar_x = camera_get_view_x(view_camera[0]) + 10;
 //healthbar_y = camera_get_view_y(view_camera[0]) + 150;
 
-key_up = keyboard_check(vk_up);
-key_down = keyboard_check(vk_down);
-key_left = keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_jump = keyboard_check_pressed(vk_space);
-key_dash = keyboard_check_pressed(vk_lshift);
-key_dash_hold = keyboard_check(vk_lshift);
-key_attack = keyboard_check_pressed(ord("Z"));
-key_special = keyboard_check_pressed(ord("X"));
+key_up = keyboard_check(vk_up) || keyboard_check(ord("W")) || gamepad_button_check(0, gp_padu) || gamepad_axis_value(0, gp_axislv) > 0.5;
+key_down = keyboard_check(vk_down) || keyboard_check(ord("S")) || gamepad_button_check(0, gp_padd) || gamepad_axis_value(0, gp_axislv) < -0.5;
+key_left = keyboard_check(vk_left) || keyboard_check(ord("A")) || gamepad_button_check(0, gp_padl) || gamepad_axis_value(0, gp_axislh) < -0.5;
+key_right = keyboard_check(vk_right) || keyboard_check(ord("D")) || gamepad_button_check(0, gp_padr) || gamepad_axis_value(0, gp_axislh) > 0.5;
+key_jump = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("H")) || gamepad_button_check_pressed(0, gp_face1);
+key_dash = keyboard_check_pressed(vk_lshift) || keyboard_check_pressed(ord("J")) || gamepad_button_check_pressed(0, gp_face2) || gamepad_button_check_pressed(0, gp_shoulderr) || gamepad_button_check_pressed(0, gp_shoulderrb);
+key_dash_hold = keyboard_check(vk_lshift) || keyboard_check(ord("J")) || gamepad_button_check(0, gp_face2) || gamepad_button_check(0, gp_shoulderr) || gamepad_button_check(0, gp_shoulderrb);
+key_attack = keyboard_check_pressed(ord("Z")) || keyboard_check_pressed(ord("Y")) || gamepad_button_check_pressed(0, gp_face3);
+key_special = keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("U")) || gamepad_button_check_pressed(0, gp_face4);
 key_debug = keyboard_check_pressed(ord("P"));
 if(key_debug){
 	state = PLAYERSTATE.FREE;
