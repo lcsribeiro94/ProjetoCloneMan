@@ -55,11 +55,18 @@ function ProcessarAtaque(){
 	var _enemiesHitNowBoss = ds_list_create();
 	var _hitsBoss = instance_place_list(x, y, oBoss, _enemiesHitNowBoss, false);
 	if (_hitsBoss > 0) {
+		var freezeEffect = true;
 		for (var i = 0; i < _hitsBoss; i++) {
 			if(argument_count > 2){
 				vsp = argument[2];
 				specialDownEnhancer = 0;
 			}
+			
+			var _freeze = current_time + 33;
+			while(current_time < _freeze && freezeEffect){
+			};
+			freezeEffect = false;
+			
 			// Checando se o inimigo já foi atingido neste frame
 			
 			var _hitIDBoss = _enemiesHitNowBoss[| i];
