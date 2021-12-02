@@ -3,17 +3,14 @@
 //commit change
 function PlayerState_Free(){
 	
-	dashDuration = max(dashDuration - 1, 0);
-	dashCooldown = max(dashCooldown - 1, 0);
+	
 	wallJumpDuration = max(wallJumpDuration - 1, 0);
 	atkCooldown = max(atkCooldown - 1, 0);
 	specialNeutralAtkCooldown = max(specialNeutralAtkCooldown - 1, 0);
 	specialUpAtkCooldown = max(specialUpAtkCooldown - 1, 0);
 	specialDownEnhancer = 0;
 	
-	if(dashDuration == 1){
-		dashCooldown = 15;
-	}
+	
 	// H Speed
 	var move = key_right - key_left;
 	if(wallJumpDuration > 0){	
@@ -34,12 +31,12 @@ function PlayerState_Free(){
 		inst.sprite_index = sprite_index;
 		inst.image_index = image_index;
 		inst.image_xscale = image_xscale;
-		
 		dashActualSpeed = dashActualSpeed * dashAcc;
 		if(dashJump){
 			hsp = (hsp + dashActualSpeed) * abs(move);
 		}else{
 			hsp = hsp + dashActualSpeed;
+			vsp = -grv;
 		}
 		
 		if(hsp * image_xscale > dashsp){
@@ -67,7 +64,7 @@ function PlayerState_Free(){
 	
 	if (key_dash && dashCooldown == 0 && dashDuration == 0 && !dashJump) {
 		//state = PLAYERSTATE.DASH;
-		dashDuration = 15;
+		dashDuration = 20;
 		onDash = true;
 		vsp = 0;
 		hsp = 0;
@@ -134,6 +131,7 @@ function PlayerState_Free(){
 			y = y + sign(vsp);
 		}
 		vsp = 0;
+		dashCooldown -= 10;
 	}
 	y = y + vsp;
 	

@@ -37,6 +37,10 @@ function ProcessarAtaque(){
 			with(_hitID){
 				if(!instance_exists(hit)){ 
 					hit = instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+					hit.xDiff = playerX - x;
+					hit.yDiff = playerY - y;
+					hit.orientation = sign(hit.xDiff);
+					hit.changed = true;
 					if(hitOnFrame){
 						hp--;
 					}
@@ -82,7 +86,10 @@ function ProcessarAtaque(){
 			var _hitIDBoss = _enemiesHitNowBoss[| i];
 			with(_hitIDBoss){
 				if(!instance_exists(oSwordSlash)){ 
-					instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+					hit = instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+					hit.xDiff = playerX - x;
+					hit.yDiff = playerY - y;
+					hit.changed = true;
 					if(hitOnFrame){
 						hp--;
 					}

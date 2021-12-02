@@ -55,7 +55,11 @@ if(inv_frameDuration == 0){
 inv_frameDuration = max(inv_frameDuration - 1, 0);
 //show_debug_message("hsp = " + string(hsp));
 	//show_debug_message("vsp = " + string(vsp));
-
+dashDuration = max(dashDuration - 1, 0);
+if(dashDuration == 1){
+	dashCooldown = 30;
+}
+dashCooldown = max(dashCooldown - 1, 0);
 
 switch (state) {
 	case PLAYERSTATE.FREE:
