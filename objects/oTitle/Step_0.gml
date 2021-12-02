@@ -1,5 +1,5 @@
 image_alpha = min(image_alpha+0.02,1);
-if (keyboard_check(vk_enter) || gamepad_button_check_pressed(0, gp_start)) {
+if (keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0, gp_start)) {
 	randomize();
 	roomtogo = irandom(2);
 	global.hasUp = false;

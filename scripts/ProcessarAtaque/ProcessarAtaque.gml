@@ -11,7 +11,12 @@ function ProcessarAtaque(){
 		image_index = 0;
 		ds_list_clear(enemiesHit);
 	}
-	
+	var hitOnFrame = false;
+	if(argument[0] != sPlayerSpecialNeutral){
+		hitOnFrame = (argument[0] == spritePlayerAttackAir || argument[0] == spritePlayerAttack3);
+	}else{
+		hitOnFrame = true;
+	}
 	// Atualizando hitbox e verificando inimigos atingidos
 	mask_index = argument[1];
 	var _enemiesHitNow = ds_list_create();
@@ -19,18 +24,23 @@ function ProcessarAtaque(){
 	if (_hits > 0) {
 		var freezeEffect = true;
 		for (var i = 0; i < _hits; i++) {
-			if(argument_count > 2){
+			if(argument_count == 3){
 				vsp = argument[2];
 				specialDownEnhancer = 0;
 			}
-			var _freeze = current_time + 33;
+			var _freeze = current_time + 22;
 			while(current_time < _freeze && freezeEffect){
 			};
 			freezeEffect = false;
 			// Checando se o inimigo já foi atingido neste frame
 			var _hitID = _enemiesHitNow[| i];
 			with(_hitID){
-				if(!instance_exists(hit)) hit = instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+				if(!instance_exists(hit)){ 
+					hit = instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+					if(hitOnFrame){
+						hp--;
+					}
+				}
 			}
 			if (ds_list_find_index(enemiesHit, _hitID) == -1) {
 				ds_list_add(enemiesHit, _hitID);
@@ -62,7 +72,7 @@ function ProcessarAtaque(){
 				specialDownEnhancer = 0;
 			}
 			
-			var _freeze = current_time + 33;
+			var _freeze = current_time + 22;
 			while(current_time < _freeze && freezeEffect){
 			};
 			freezeEffect = false;
@@ -71,7 +81,12 @@ function ProcessarAtaque(){
 			
 			var _hitIDBoss = _enemiesHitNowBoss[| i];
 			with(_hitIDBoss){
-				if(!instance_exists(oSwordSlash)) instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+				if(!instance_exists(oSwordSlash)){ 
+					instance_create_depth((x + playerX) / 2, ((y + playerY) / 2) - 30, -20, oSwordSlash);
+					if(hitOnFrame){
+						hp--;
+					}
+				}
 			}
 			if (ds_list_find_index(enemiesHit, _hitIDBoss) == -1) {
 				ds_list_add(enemiesHit, _hitIDBoss);

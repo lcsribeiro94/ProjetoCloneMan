@@ -4,21 +4,25 @@ healthbar_width = 15;
 healthbar_heigth = 60;
 healthbar_x = window_get_width() - 100;
 healthbar_y = 200;
-hp = 20;
-maxHP = hp;
+hp = 60;
 hsp = 0;
 vsp = 0;
 grv = 0.50;
 dmg = 1;
 if (global.hasDown) {
 	dmg++;
+	hp+= 10;
 }
 if (global.hasUp) {
 	dmg++;
+	hp+= 10;
 }
 if (global.hasNeutral) {
 	dmg++;
+	hp+= 10;
 }
+
+maxHP = hp;
 inv_frameDuration = 0;
 inv_frameAlpha = 0;
 
