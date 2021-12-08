@@ -132,8 +132,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"RoomScoreBoard","path":"rooms/RoomScoreBoard/RoomScoreBoard.yy",},},
     {"roomId":{"name":"RoomTitle","path":"rooms/RoomTitle/RoomTitle.yy",},},
+    {"roomId":{"name":"RoomScoreBoard","path":"rooms/RoomScoreBoard/RoomScoreBoard.yy",},},
     {"roomId":{"name":"RoomWinGame","path":"rooms/RoomWinGame/RoomWinGame.yy",},},
     {"roomId":{"name":"RoomForestBoss","path":"rooms/RoomForestBoss/RoomForestBoss.yy",},},
     {"roomId":{"name":"RoomForest","path":"rooms/RoomForest/RoomForest.yy",},},
