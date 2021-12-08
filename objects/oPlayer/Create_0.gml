@@ -2,7 +2,6 @@
 
 maxHP = 20;
 hp = maxHP;
-flash = 0;
 healthbar_width = 15;
 healthbar_heigth = 60;
 healthbar_x = 75;
@@ -31,7 +30,6 @@ dashJump = false;
 wallJumpDuration = 0;
 nextAtk = false;
 atkCooldown = 0;
-dashHoldMultiplier = 2.5;
 specialUpAtk = false;
 specialUpAtkCooldown = 0;
 specialNeutralAtkCooldown = 0;
