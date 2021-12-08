@@ -30,5 +30,13 @@ if (ds_map_find_value(async_load, "id") == get) {
 	}
 	else{
 		global.erro = "Não foi possível se conectar ao servidor.";
+		var _scoreX = 250;
+		var _scoreY = 200;
+		with (instance_create_layer(_scoreX, _scoreY, "Instances", oScoreboard)) {
+				bdSessionTime = global.session_time_end;
+				bdStages = global.session_stage;
+				bdLives = global.session_lives;
+				bdEnd = global.session_end;
+			}
 	}
 }
