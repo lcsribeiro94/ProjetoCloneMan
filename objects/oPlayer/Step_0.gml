@@ -28,6 +28,7 @@ if(hp != old_hp){
 			state = PLAYERSTATE.TAKEHIT;
 		}else{
 			vidaExtra--;
+			global.session_lives++;
 			if (vidaExtra < 1) {
 				room_goto(RoomGameOver);
 			}

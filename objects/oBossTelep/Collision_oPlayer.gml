@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+global.session_stage++;
+
 switch (room) {
 	case RoomCave:
 		global.lastRoom = RoomCaveBoss;

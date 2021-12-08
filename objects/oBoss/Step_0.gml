@@ -18,6 +18,8 @@ inv_frameDuration = max(inv_frameDuration - 1, 0);
 if (hsp != 0) image_xscale = sign(hsp) * -1;
 
 if (hp <= 0) {
+	
+	global.session_stage++;
 	instance_destroy();
 	
 	if (room == RoomCaveBoss) {
@@ -35,7 +37,6 @@ if (hp <= 0) {
 	}
 	else {
 		var _verify = true;
-		
 		while (_verify) {
 			_verify = false;
 			roomtogo = irandom(2);
